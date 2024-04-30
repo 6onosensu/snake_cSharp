@@ -6,24 +6,20 @@ namespace snake_cSharp
     {
         static void Main(string[] args)
         {
-            int x1 = 1;
-            int y1 = 1;
-            char sym1 = '*';
+            Point point = new Point();
+            point.x = 1;
+            point.y = 2;
+            point.sym = '*';
+            point.Draw();
 
-            int x2 = 2; 
-            int y2 = 2;
-            int sym2 = '#';
-
-            Draw(x2, y2, sym2);
+            Point point2 = new Point();
+            point2.x = 4;
+            point2.y = 5;
+            point2.sym = '#';
+            point2.Draw();
 
 
             Console.ReadLine();
-        }
-
-        static void Draw (int x, int y, char sym)
-        {
-            Console.SetCursorPosition(x, y);
-            Console.Write(sym);
         }
     }
 }
