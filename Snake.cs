@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace snake_cSharp
 {
@@ -12,10 +13,10 @@ namespace snake_cSharp
         public Snake(Point tail, int length, Direction direction)
         {
             this.direction = direction;
-            points = new List<Point>();
+            points = [];
             for (int i = 0; i < length; i++)
             {
-                Point p = new Point(tail);
+                Point p = new(tail);
                 p.Move(i, direction);
                 points.Add(p);
             }
@@ -28,14 +29,34 @@ namespace snake_cSharp
             points.Add(head);
 
             tail.Clear();
-            head.Draw();
+            head.DisplayPoint();
         }
         public Point GetNextPoint()
         {
             Point head = points.Last();
-            Point nextPoint = new Point(head);
+            Point nextPoint = new(head);
             nextPoint.Move(1, direction);
             return nextPoint;
+        }
+
+        public void HandleKey(ConsoleKey key)
+        {
+            if (key == ConsoleKey.LeftArrow)
+            {
+                direction = Direction.Left;
+            }
+            else if (key == ConsoleKey.RightArrow)
+            {
+                direction = Direction.Right;
+            }
+            else if (key == ConsoleKey.UpArrow)
+            {
+                direction = Direction.Up;
+            }
+            else if (key == ConsoleKey.DownArrow)
+            {
+                direction = Direction.Down;
+            }
         }
     }
 }

@@ -10,11 +10,11 @@ namespace snake_cSharp
     {
         protected List<Point> points;
 
-        public void DrawLine()
+        public void Display()
         {
             foreach (Point p in points)
             {
-                p.Draw();
+                p.DisplayPoint();
             }
         }
     }

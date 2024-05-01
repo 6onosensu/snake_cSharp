@@ -8,9 +8,9 @@ namespace snake_cSharp
 {
     enum Direction
     {
-        LEFT,
-        RIGHT,
-        UP,
-        DOWN
+        Left,
+        Right,
+        Up,
+        Down
     }
 }

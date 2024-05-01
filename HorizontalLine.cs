@@ -11,10 +11,10 @@ namespace snake_cSharp
 
         public HorizontalLine(int xLeft, int xRight, int y, char sym) 
         { 
-            points = new List<Point>();
+            points = [];
             for (int x = xLeft; x < xRight; x++) 
             {
-                Point point = new Point(x, y, sym);
+                Point point = new(x, y, sym);
                 points.Add(point);
             }
         }
