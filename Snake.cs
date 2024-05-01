@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
@@ -13,32 +14,46 @@ namespace snake_cSharp
         public Snake(Point tail, int length, Direction direction)
         {
             this.direction = direction;
-            points = [];
+            shapeList = [];
             for (int i = 0; i < length; i++)
             {
                 Point p = new(tail);
                 p.Move(i, direction);
-                points.Add(p);
+                shapeList.Add(p);
             }
         }
-        internal void Move() 
-        {
-            Point tail = points.First();
-            points.Remove(tail);
-            Point head = GetNextPoint();
-            points.Add(head);
 
-            tail.Clear();
-            head.DisplayPoint();
-        }
         public Point GetNextPoint()
         {
-            Point head = points.Last();
+            Point head = shapeList.Last();
             Point nextPoint = new(head);
             nextPoint.Move(1, direction);
             return nextPoint;
         }
+        internal void Move()
+        {
+            Point tail = shapeList.First();
+            shapeList.Remove(tail);
+            Point head = GetNextPoint();
+            shapeList.Add(head);
 
+            tail.Clear();
+            head.DisplayPoint();
+        }
+
+        internal bool Eat(Point food)
+        {
+            Point head = GetNextPoint();
+            if (head.IsHit(food))
+            {
+                shapeList.Add(food);
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
         public void HandleKey(ConsoleKey key)
         {
             if (key == ConsoleKey.LeftArrow)

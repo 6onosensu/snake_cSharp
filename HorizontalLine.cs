@@ -8,15 +8,22 @@ namespace snake_cSharp
 {
     internal class HorizontalLine : Shape
     {
-
         public HorizontalLine(int xLeft, int xRight, int y, char sym) 
         { 
-            points = [];
+            shapeList = [];
             for (int x = xLeft; x < xRight; x++) 
             {
-                Point point = new(x, y, sym);
-                points.Add(point);
+                Point p = new(x, y, sym);
+                shapeList.Add(p);
             }
+        }
+
+        public override void Display()
+        {
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            base.Display();
+
+            Console.ForegroundColor = ConsoleColor.White;
         }
 
     } 

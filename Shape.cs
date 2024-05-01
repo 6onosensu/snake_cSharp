@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace snake_cSharp
 {
-    internal class Shape
+    class Shape
     {
-        protected List<Point> points;
+        protected List<Point> shapeList;
 
-        public void Display()
+        public virtual void Display()
         {
-            foreach (Point p in points)
+            foreach (Point p in shapeList)
             {
                 p.DisplayPoint();
             }

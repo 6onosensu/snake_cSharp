@@ -8,9 +8,9 @@ namespace snake_cSharp
 {
     class Point
     {
-        private int x;
-        private int y;
-        private char sym;
+        int x;
+        int y;
+        char sym;
 
         public Point(int x, int y, char sym)
         {
@@ -55,6 +55,11 @@ namespace snake_cSharp
         {
             sym = ' ';
             DisplayPoint();
+        }
+
+        public bool IsHit(Point p) 
+        { 
+            return p.x == this.x && p.y == this.y;
         }
     }
 }
