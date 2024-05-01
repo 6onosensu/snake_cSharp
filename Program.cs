@@ -6,18 +6,17 @@ namespace snake_cSharp
 {
     class Program
     {
-        private const int Width = 122;
-
         static void Main(string[] args)
         {
-            ArgumentNullException.ThrowIfNull(args);
+            const int width = 122;
+            const int height = 30;
 
-            Console.SetBufferSize(width: Width, 30);
+            Console.SetBufferSize(width, height);
 
-            HorizontalLine top = new(0, 120, 0, '+');
-            HorizontalLine bottom = new(0, 120, 28, '+');
-            VerticalLine left = new(0, 28, 0, '+');
-            VerticalLine right = new(0, 28, 120, '+');
+            HorizontalLine top = new(0, 78, 0, '+');
+            HorizontalLine bottom = new(0, 78, 24, '+');
+            VerticalLine left = new(0, 24, 0, '+');
+            VerticalLine right = new(0, 24, 78, '+');
             top.Display();
             bottom.Display();
             left.Display();
